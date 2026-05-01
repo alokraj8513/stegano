@@ -38,7 +38,7 @@ Interface: customtkinter, tkinter
 
 Clone the repository:
 
-git clone [https://github.com/yourusername/steganography-suite.git](https://github.com/yourusername/steganography-suite.git)
+git clone repo-name
 cd steganography-suite
 
 
