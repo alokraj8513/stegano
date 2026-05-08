@@ -141,10 +141,12 @@ def extract_message(image_path, password, algo):
 
     bytes_list = [bits[i:i + 8] for i in range(0, len(bits), 8)]
     chars = []
-    for b in bytes_list:
-        if b == '11111110':
+
+    # Updated Loop: Check for the full 16-bit delimiter (two consecutive bytes)
+    for i in range(len(bytes_list)):
+        if bytes_list[i] == '11111111' and i + 1 < len(bytes_list) and bytes_list[i + 1] == '11111110':
             break
-        chars.append(chr(int(b, 2)))
+        chars.append(chr(int(bytes_list[i], 2)))
 
     extracted_data = ''.join(chars)
 
